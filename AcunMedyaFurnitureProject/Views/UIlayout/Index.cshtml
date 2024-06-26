@@ -1,0 +1,33 @@
+﻿@{
+    Layout = null;
+}
+<!-- /*
+* Bootstrap 5
+* Template Name: Furni
+* Template Author: Untree.co
+* Template URI: https://untree.co/
+* License: https://creativecommons.org/licenses/by/3.0/
+*/ -->
+<!doctype html>
+<html lang="en">
+
+@await Component.InvokeAsync("_UILayoutHeadComponent")
+
+<body>
+
+    <!-- Start Header/Navigation -->
+    @await Component.InvokeAsync("_UILayoutNavbarComponent")
+    <!-- End Header/Navigation -->
+    @RenderBody()
+    <!-- End Blog Section -->
+    <!-- Start Footer Section -->
+    @await Component.InvokeAsync("_UILayoutFooterComponent")
+    <!-- End Footer Section -->
+
+
+    <script src="~/furni-1.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="~/furni-1.0.0/js/tiny-slider.js"></script>
+    <script src="~/furni-1.0.0/js/custom.js"></script>
+</body>
+
+</html>

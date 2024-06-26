@@ -1,0 +1,22 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Yeni Ürün Oluştur";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+<form method="post">
+    <label>Ürün Adı</label>
+    <input type="text" asp-for="ProductName" class="form-control" />
+    <br /><br>
+    <label>Ürün Görseli</label>
+    <input type="text" asp-for="ImageUrl" class="form-control" />
+    <br /><br />
+    <label>Ürün Fiyatı</label>
+    <input type="text" asp-for="Price" class="form-control" />
+    <br /><br />
+    <label>Ürün Açıklaması</label>
+    <input type="text" asp-for="Description" class="form-control" />
+    <br /><br />
+    <button class="btn btn-outline-primary">Kaydet</button>
+
+</form>
+

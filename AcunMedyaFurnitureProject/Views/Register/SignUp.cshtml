@@ -1,0 +1,24 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "SignUp";
+    Layout = "/Views/UILayout/Index.cshtml";
+}
+
+
+<form method="post">
+    <label>Ad Soyad</label>
+    <input type="text" asp-for="NameSurname" class="form-control" required />
+    <br />
+    <label>Kullanıcı Adı</label>
+    <input type="text" asp-for="UserName" class="form-control" required />
+    <br />
+    <label>Email</label>
+    <input type="email" asp-for="Email" class="form-control" required />
+    <br />
+    <label>Şifre</label>
+    <input type="password" asp-for="Password" class="form-control" required />
+    <br />
+
+    <p class="text-danger">@Html.ValidationSummary()</p>
+    <button class="btn btn-primary">Kayıt Ol</button>
+</form>
