@@ -1,6 +1,6 @@
-﻿@model List<Testimonial>
+﻿@model List<Service>
 @{
-    ViewData["Title"] = "Referanslar";
+    ViewData["Title"] = "Hizmetler";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -10,10 +10,9 @@
 <table class="table table-bordered table-hover">
     <tr>
         <th>#</th>
-        <th>Resim</th>
-        <th>Ad Soyad</th>
-        <th>Unvan</th>
-        <th>Yorum</th>
+        <th>Başlık</th>
+        <th>Açıklama</th>
+        <th>İkon</th>
         <th>İşlemler</th>
     </tr>
     @foreach (var item in Model)
@@ -21,24 +20,23 @@
         count++;
         <tr>
             <th>@count</th>
-            <td><img src="@item.ImageUrl" style="width:50px;height:50px" /></td>
-            <td>@item.NameSurname</td>
             <td>@item.Title</td>
             <td>@item.Description.Substring(0, 10) ...</td>
+            <td><img src="@item.Icon"/></td>
             <td>
-                <button onclick="deleteTestimonial(@item.TestimonialID)" class="btn btn-outline-danger"><i class="fas fa-trash"></i> Sil</button>
+                <button onclick="deleteService(@item.ServiceID)" class="btn btn-outline-danger"><i class="fas fa-trash"></i> Sil</button>
 
-                <a asp-action="UpdateTestimonial" asp-controller="Testimonial" asp-route-id="@item.TestimonialID" class="btn btn-outline-info"><i class="fas fa-pen"></i> Güncelle</a>
+                <a asp-action="UpdateService" asp-controller="Service" asp-route-id="@item.ServiceID" class="btn btn-outline-info"><i class="fas fa-pen"></i> Güncelle</a>
             </td>
 
 
         </tr>
     }
 </table>
-<a asp-action="CreateTestimonial" asp-controller="Testimonial" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> Yeni Referans Oluştur</a>
+<a asp-action="CreateService" asp-controller="Service" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> Yeni Hizmet Oluştur</a>
 
 <script>
-    function deleteTestimonial(id) {
+    function deleteService(id) {
 
         Swal.fire({
             title: "Silmek İstediğinize Emin Misinizi",
@@ -51,7 +49,7 @@
             cancelButtonText: "İptal",
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = "/Admin/Testimonial/DeleteTestimonial/" + id;
+                window.location.href = "/Admin/Service/DeleteService/" + id;
             }
         });
     }

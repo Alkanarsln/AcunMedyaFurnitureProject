@@ -7,7 +7,6 @@ namespace AcunMedyaFurnitureProject.Areas.Admin.Controllers
 {
 	[Area("Admin")]
 	[Route("[area]/{controller}/[action]/{id?}")]
-	[Authorize]
 	public class ProductController : Controller
 	{
 		private readonly FurniterContext _context;
@@ -56,5 +55,22 @@ namespace AcunMedyaFurnitureProject.Areas.Admin.Controllers
 			_context.SaveChanges();
 			return RedirectToAction("Index");
 		}
-	}
+
+		public IActionResult ActiveProduct(int id)
+		{
+			var values = _context.Products.Find(id);
+			values.Status = true;
+			_context.SaveChanges();
+			return RedirectToAction("Index");
+			
+		}
+        public IActionResult PassiveProduct(int id)
+        {
+            var values = _context.Products.Find(id);
+            values.Status = false;
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+    }
 }

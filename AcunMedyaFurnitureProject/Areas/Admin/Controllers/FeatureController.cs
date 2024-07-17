@@ -8,53 +8,52 @@ namespace AcunMedyaFurnitureProject.Areas.Admin.Controllers
     [Area("Admin")]
     [Route("[area]/{controller}/[action]/{id?}")]
     [Authorize]
-    public class TestimonialController : Controller
+    public class FeatureController : Controller
     {
         private readonly FurniterContext _context;
 
-        public TestimonialController(FurniterContext context)
+        public FeatureController(FurniterContext context)
         {
             _context = context;
         }
 
         public IActionResult Index()
-        { 
-            var values = _context.Testimonials.ToList();
+        {
+            var values = _context.Features.ToList();
             return View(values);
         }
-        public IActionResult DeleteTestimonial(int id)
+        public IActionResult DeleteFeature(int id)
         {
-            var value = _context.Testimonials.Find(id);
-            _context.Testimonials.Remove(value);
+            var value = _context.Features.Find(id);
+            _context.Features.Remove(value);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        public IActionResult CreateTestimonial()
+        public IActionResult CreateFeature()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult CreateTestimonial(Testimonial testimonial)
+        public IActionResult CreateFeature(Feature feature)
         {
-            _context.Testimonials.Add(testimonial);
+            _context.Features.Add(feature);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        public IActionResult UpdateTestimonial(int id)
+        public IActionResult UpdateFeature(int id)
         {
-            var value = _context.Testimonials.Find(id);
+            var value = _context.Features.Find(id);
 
             return View(value);
         }
         [HttpPost]
-        public IActionResult UpdateTestimonial(Testimonial testimonial)
+        public IActionResult UpdateFeature(Feature feature)
         {
-            _context.Testimonials.Update(testimonial);
+            _context.Features.Update(feature);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
-
     }
 }

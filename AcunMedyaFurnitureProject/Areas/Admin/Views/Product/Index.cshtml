@@ -3,7 +3,7 @@
     ViewData["Title"] = "Ürünler";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @{
     int count = 0;
 }
@@ -15,6 +15,8 @@
         <th>Ürün Fiyatı</th>
         <th>Ürün Açıklaması</th>
         <th>İşlemler</th>
+        <th>Durumu</th>
+
     </tr>
     @foreach (var item in Model)
     {
@@ -26,13 +28,82 @@
             <td>@item.Price</td>
             <td>@item.Description</td>
             <td>
-                <a asp-action="DeleteProduct" asp-controller="Product" asp-route-id="@item.ProductID" class="btn btn-outline-danger">Sil</a>
+                <button onclick="deleteProduct(@item.ProductID)" class="btn btn-outline-danger"><i class="fas fa-trash"></i> Sil</button>
 
-                <a asp-action="UpdateProduct" asp-controller="Product" asp-route-id="@item.ProductID" class="btn btn-outline-info">Güncelle</a>
+                <a asp-action="UpdateProduct" asp-controller="Product" asp-route-id="@item.ProductID" class="btn btn-outline-info"><i class="fas fa-pen"></i> Güncelle</a>
             </td>
+            @if (item.Status == true)
+            {
+                <td><button onclick="passiveProduct(@item.ProductID)" class="btn btn-outline-danger">Pasif Yap</button></td>
+            }
+            else
+            {
+                <td><button onclick="activeProduct(@item.ProductID)" class="btn btn-outline-danger"> Aktif Yap</button></td>
+            }
               
 
         </tr>
     }
 </table>
-<a asp-action="CreateProduct" asp-controller="Product" class="btn btn-outline-primary">Yeni Ürün Oluştur</a>
+<a asp-action="CreateProduct" asp-controller="Product" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> Yeni Ürün Oluştur</a>
+
+<script>
+    function deleteProduct(id) {
+
+        Swal.fire({
+            title: "Silmek İstediğinize Emin Misinizi",
+            text: "Bu işlemi geri alamazsınız",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Evet, Sil!",
+            cancelButtonText: "İptal",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/Admin/Product/DeleteProduct/" + id;
+            }
+        });
+    }
+
+</script>
+<script>
+    function passiveProduct(id) {
+
+        Swal.fire({
+            title: "Pasif Yapmak İstediğinize Emin Misinizi",
+            text: "Bu işlemi geri alamazsınız",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Evet, Pasif Yap!",
+            cancelButtonText: "İptal",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/Admin/Product/PassiveProduct/" + id;
+            }
+        });
+    }
+
+</script>
+<script>
+    function activeProduct(id) {
+
+        Swal.fire({
+            title: "Aktif Yapmak İstediğinize Emin Misinizi",
+            text: "Bu işlemi geri alamazsınız",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Evet, Aktif Yap!",
+            cancelButtonText: "İptal",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/Admin/Product/ActiveProduct/" + id;
+            }
+        });
+    }
+
+</script>

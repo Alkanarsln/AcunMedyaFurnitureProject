@@ -1,23 +1,21 @@
 ﻿using AcunMedyaFurnitureProject.DataAccess.Context;
-using AcunMedyaFurnitureProject.DataAccess.Entities;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AcunMedyaFurnitureProject.ViewComponents.UILayout
+namespace AcunMedyaFurnitureProject.ViewComponents.Default_Index
 {
-    public class _UILayoutFooterComponent : ViewComponent
+    public class _DefaultAboutComponent : ViewComponent
     {
         private readonly FurniterContext _context;
 
-        public _UILayoutFooterComponent(FurniterContext context)
+        public _DefaultAboutComponent(FurniterContext context)
         {
             _context = context;
         }
 
         public IViewComponentResult Invoke()
         {
-            return View();
+            var values = _context.Abouts.ToList();
+            return View(values);
         }
-
-
     }
 }

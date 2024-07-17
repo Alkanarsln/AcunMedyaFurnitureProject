@@ -4,6 +4,7 @@ using AcunMedyaFurnitureProject.DataAccess.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AcunMedyaFurnitureProject.Migrations
 {
     [DbContext(typeof(FurniterContext))]
-    partial class FurniterContextModelSnapshot : ModelSnapshot
+    [Migration("20240717094257_about_table_updated")]
+    partial class about_table_updated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,20 +36,13 @@ namespace AcunMedyaFurnitureProject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Item1")
-                        .IsRequired()
+                    b.Property<string>("Image1")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Item2")
-                        .IsRequired()
+                    b.Property<string>("Image2")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Item3")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Item4")
-                        .IsRequired()
+                    b.Property<string>("Image3")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
@@ -202,6 +197,7 @@ namespace AcunMedyaFurnitureProject.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
@@ -235,9 +231,6 @@ namespace AcunMedyaFurnitureProject.Migrations
                     b.Property<string>("ProductName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
 
                     b.HasKey("ProductID");
 
