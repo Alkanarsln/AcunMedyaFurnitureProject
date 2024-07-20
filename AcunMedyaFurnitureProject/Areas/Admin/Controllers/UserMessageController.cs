@@ -19,5 +19,14 @@ namespace AcunMedyaFurnitureProject.Areas.Admin.Controllers
             var values = _context.UserMessages.ToList();
             return View(values);
         }
+
+        public IActionResult DeleteMessage(int id)
+        {
+            var value = _context.UserMessages.Find(id);
+            _context.UserMessages.Remove(value);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
     }
 }

@@ -24,7 +24,7 @@
             <td>@item.NameSurname</td>
             <td>@item.Email</td>
             <td>@item.Subject</td>
-            <td>@item.MessageContent.Substring(0, 10) ...</td>
+            <td>@item.MessageContent</td>
             <td>
                 <button onclick="deleteUserMessage(@item.UserMessageID)" class="btn btn-outline-danger"><i class="fas fa-trash"></i> Sil</button>
             </td>
@@ -48,7 +48,7 @@
             cancelButtonText: "İptal",
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = "/Admin/UserMessage/DeleteUserMessage/" + id;
+                window.location.href = "/Admin/UserMessage/DeleteMessage/" + id;
             }
         });
     }
