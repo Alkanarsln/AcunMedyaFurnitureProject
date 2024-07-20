@@ -7,7 +7,6 @@ namespace AcunMedyaFurnitureProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("[area]/{controller}/[action]/{id?}")]
-    [Authorize]
     public class AboutController : Controller
     {
         private readonly FurniterContext _context;

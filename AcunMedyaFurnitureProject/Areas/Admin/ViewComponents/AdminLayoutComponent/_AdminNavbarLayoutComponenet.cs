@@ -17,6 +17,7 @@ namespace AcunMedyaFurnitureProject.Areas.Admin.ViewComponents.AdminLayoutCompon
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
             ViewBag.Name = user.NameSurname;
+            ViewBag.ImageUrl = user.ImageUrl;
             
                return View();
         }

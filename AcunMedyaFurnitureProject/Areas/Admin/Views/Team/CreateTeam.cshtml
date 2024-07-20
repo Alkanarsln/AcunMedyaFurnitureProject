@@ -1,0 +1,24 @@
+﻿@model Team
+@{
+    ViewData["Title"] = "Furniter Ekibi Ekleme Sayfası";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<form method="post">
+    <label>İsim Soyisim</label>
+    <input type="text" asp-for="NameSurname" class="form-control" />
+    <br /><br>
+    <label>Resim Url</label>
+    <input type="text" asp-for="ImageUrl" class="form-control" />
+    <br /><br />
+    <label>Unvan</label>
+    <input type="text" asp-for="Title" class="form-control" />
+    <br /><br />
+    <label>Açıklama</label>
+    <input type="text" asp-for="Description" class="form-control" />
+    <br /><br />
+    <button class="btn btn-outline-primary">Kaydet</button>
+
+</form>
+
+
