@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Abone Oluşturuldu";
+}
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Abonelik Oluşturuldu",
+        showConfirmButton: false,
+        timer: 1500
+    }).then((result) => {
+        if (result.isConfirmed || result.dismiss === Swal.DismissReason.timer) {
+            window.location.href = "/Default/Index";
+        }
+    });
+</script>
