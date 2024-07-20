@@ -1,0 +1,31 @@
+﻿@model List<About>
+<div class="we-help-section">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-7 mb-5 mb-lg-0">
+                <div class="imgs-grid">
+                    <div class="grid grid-1"><img src="~/furni-1.0.0/images/img-grid-1.jpg" alt="Untree.co"></div>
+                    <div class="grid grid-2"><img src="~/furni-1.0.0/images/img-grid-2.jpg" alt="Untree.co"></div>
+                    <div class="grid grid-3"><img src="~/furni-1.0.0/images/img-grid-3.jpg" alt="Untree.co"></div>
+                </div>
+            </div>
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-5 ps-lg-5">
+                    <h2 class="section-title mb-4">@item.Title</h2>
+                    <p>@item.Description</p>
+
+                    <ul class="list-unstyled custom-list my-4">
+                        <li>@item.Item1</li>
+                        <li>@item.Item2</li>
+                        <li>@item.Item3</li>
+                        <li>@item.Item4</li>
+
+                    </ul>
+                    <p><a herf="#" class="btn">Keşfet</a></p>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

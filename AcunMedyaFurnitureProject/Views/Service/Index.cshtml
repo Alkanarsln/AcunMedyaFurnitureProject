@@ -1,0 +1,29 @@
+﻿
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/UIlayout/Index.cshtml";
+	var service = ViewBag.Services as List<Service>;
+
+}
+
+<!-- Start Hero Section -->
+<div class="hero">
+	<div class="container">
+		<div class="row justify-content-between">
+			<div class="col-lg-5">
+				<div class="intro-excerpt">
+					<h1>Hizmetlerimiz</h1>
+					<p class="mb-4">Geniş bir hizmet yelpazesi sunarak, müşterilerimizin ihtiyaçlarını karşılamak için buradayız. Kaliteli ürünlerimiz ve uzman ekibimizle sizlere en iyi deneyimi sunmayı hedefliyoruz. Her aşamada profesyonellik ve müşteri memnuniyetini ön planda tutuyoruz.</p>
+					<p><a href="" class="btn btn-secondary me-2">Aleşveriş Yap</a><a href="#" class="btn btn-white-outline">Keşfet</a></p>
+				</div>
+			</div>
+			<div class="col-lg-7">
+				<div class="hero-img-wrap">
+					<img src="~/furni-1.0.0/images/couch.png" class="img-fluid">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Hero Section -->
+@await Html.PartialAsync("PartialAbout", service)

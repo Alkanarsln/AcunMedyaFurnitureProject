@@ -1,0 +1,55 @@
+﻿@model UserMessage
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<form id="usermessageform" method="post" asp-action="CreateMessage">
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label class="text-black" asp-for="NameSurname">Ad Soyad</label>
+                <input type="text" class="form-control" asp-for="NameSurname" id="namesurname" />
+                <span asp-validation-for="NameSurname" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label class="text-black" asp-for="Email">Email</label>
+                <input type="email" class="form-control" asp-for="Email" id="email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="text-black" asp-for="Subject">Konu</label>
+        <input type="text" class="form-control" asp-for="Subject" id="subject" />
+        <span asp-validation-for="Subject" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-5">
+        <label class="text-black" asp-for="MessageContent">Mesajınız</label>
+        <textarea class="form-control" asp-for="MessageContent" id="message" cols="30" rows="5"></textarea>
+        <span asp-validation-for="MessageContent" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary-hover-outline">Mesajı Gönder</button>
+</form>
+
+<script>
+    document.getElementById('usermessageform').addEventListener('submit', function (event) {
+        event.preventDefault();
+        createUserMessage();
+    });
+
+    function createUserMessage() {
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Mesajınız Başarıyla Gönderildi",
+            showConfirmButton: false,
+            timer: 1500
+        }).then((result) => {
+            if (result.isConfirmed || result.dismiss === Swal.DismissReason.timer) {
+                document.getElementById('usermessageform').submit();
+            }
+        });
+    }
+</script>

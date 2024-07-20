@@ -22,5 +22,6 @@ namespace AcunMedyaFurnitureProject.DataAccess.Context
         public DbSet<UserMessage> UserMessages { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<AppRole> AppRoles { get; set; }
+        public DbSet<Team> Teams { get; set; }
     }
 }

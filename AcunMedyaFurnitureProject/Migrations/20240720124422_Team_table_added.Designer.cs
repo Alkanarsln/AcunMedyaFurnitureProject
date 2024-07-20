@@ -4,6 +4,7 @@ using AcunMedyaFurnitureProject.DataAccess.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AcunMedyaFurnitureProject.Migrations
 {
     [DbContext(typeof(FurniterContext))]
-    partial class FurniterContextModelSnapshot : ModelSnapshot
+    [Migration("20240720124422_Team_table_added")]
+    partial class Team_table_added
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -326,7 +328,7 @@ namespace AcunMedyaFurnitureProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TeamID"), 1L, 1);
 
-                    b.Property<string>("Description")
+                    b.Property<string>("Açıklama")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

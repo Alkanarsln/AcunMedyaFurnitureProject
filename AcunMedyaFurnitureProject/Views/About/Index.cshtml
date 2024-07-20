@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UIlayout/Index.cshtml";
+}
+@{
+    var services = ViewBag.Abouts as List<About>;
+    var testimonials = ViewBag.Testimonials as List<Testimonial>;
+    var teams = ViewBag.Teams as List<Team>;
+}
+<div class="hero">
+	<div class="container">
+		<div class="row justify-content-between">
+			<div class="col-lg-5">
+				<div class="intro-excerpt">
+					<h1>Hakkımızda</h1>
+					<p class="mb-4">Biz, müşteri memnuniyetini ön planda tutarak kaliteli ürünler sunmayı amaçlayan bir şirketiz. Deneyimli ekibimizle, sizlere en iyi hizmeti sağlamak için sürekli olarak çalışıyoruz. Modern ve şık tasarımlarımızla evlerinize değer katmayı hedefliyoruz.</p>
+					<p><a href="" class="btn btn-secondary me-2">Alışverişe Başla</a><a href="#" class="btn btn-white-outline">Keşfet</a></p>
+				</div>
+			</div>
+			<div class="col-lg-7">
+				<div class="hero-img-wrap">
+					<img src="~/furni-1.0.0/images/couch.png" class="img-fluid">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Start Why Choose Us Section -->
+@await Html.PartialAsync("PartialService", services)
+
+<!-- End Why Choose Us Section -->
+<!-- Start Team Section -->
+@await Html.PartialAsync("PartialTeam", teams)
+<!-- End Team Section -->
+<!-- Start Testimonial Slider -->
+@await Html.PartialAsync("PartialTestimonial", testimonials)
+
+<!-- End Testimonial Slider -->
